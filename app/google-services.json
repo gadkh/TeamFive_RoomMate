@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "975881471292",
+    "firebase_url": "https://teamfiveroommate.firebaseio.com",
+    "project_id": "teamfiveroommate",
+    "storage_bucket": "teamfiveroommate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:975881471292:android:35b478f18b94821c",
+        "android_client_info": {
+          "package_name": "com.example.gadkh.roommate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "975881471292-75ts0eom20rg4ksp3n6gtoas6fsod955.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gadkh.roommate",
+            "certificate_hash": "f809285d660030f864a8d923ff606074cb61f6e2"
+          }
+        },
+        {
+          "client_id": "975881471292-behuua9kaf4e2skotchp5kiel779jkt6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDELm0AKgo1m70FsR89wVtjU0duAoR0BCk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "975881471292-behuua9kaf4e2skotchp5kiel779jkt6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
