@@ -1,6 +1,7 @@
 package com.example.gadkh.roommate.Fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.gadkh.roommate.NavigationActivity;
 import com.example.gadkh.roommate.R;
 
 public class LogIn_Fragment extends Fragment {
@@ -52,7 +54,7 @@ public class LogIn_Fragment extends Fragment {
     }
 
     private void setJoinUsBtn(View view) {
-        buttonJoinUs =  view.findViewById(R.id.joinUsId);
+        buttonJoinUs = view.findViewById(R.id.joinUsId);
         buttonJoinUs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,11 +64,14 @@ public class LogIn_Fragment extends Fragment {
     }
 
     private void setLogInBtn(View view) {
-        buttonLogin =  view.findViewById(R.id.Loginbtn);
+        buttonLogin = view.findViewById(R.id.Loginbtn);
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                userLogin();
+                if (userLogin()) {
+                    Intent i = new Intent(getActivity(), NavigationActivity.class);
+                    startActivity(i);
+                }
             }
         });
     }
@@ -78,18 +83,21 @@ public class LogIn_Fragment extends Fragment {
     }
 
 
-    private void userLogin() {
+    private boolean userLogin() {
         String email = editTextMail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             // email is empty
             Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_SHORT).show();
+            return false;
         }
         if (TextUtils.isEmpty(password)) {
             // password is empty
             Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_SHORT).show();
+            return false;
         }
+        return true;
     }
 
     public void emailOrPassIncorrect() {
@@ -97,8 +105,8 @@ public class LogIn_Fragment extends Fragment {
     }
 
     public void initializeAttributes(View view) {
-        editTextMail =  view.findViewById(R.id.emailLoginId);
-        editTextPassword =  view.findViewById(R.id.passLoginId);
+        editTextMail = view.findViewById(R.id.emailLoginId);
+        editTextPassword = view.findViewById(R.id.passLoginId);
     }
 
 

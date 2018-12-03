@@ -1,6 +1,7 @@
 package com.example.gadkh.roommate.Fragments;
+
 import android.content.Context;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -11,8 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.gadkh.roommate.Interfces.ICommunicationFragmentToActivity;
+import com.example.gadkh.roommate.NavigationActivity;
 import com.example.gadkh.roommate.R;
 
 public class SignUp_Fragment extends Fragment {
@@ -20,7 +21,6 @@ public class SignUp_Fragment extends Fragment {
     private String editTextMail, editTextMailConfirm, editTextPassword, editTextPasswordConfirm;
     private Button nextBtn;
 
-    private SignUpDetails_Fragment detailsFragment;
     public ICommunicationFragmentToActivity listener;
 
     public SignUp_Fragment() {
@@ -36,8 +36,6 @@ public class SignUp_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_sign_up_, container, false);
-
-        detailsFragment = new SignUpDetails_Fragment();
 
         initializeAttributes(view);
 
@@ -66,7 +64,8 @@ public class SignUp_Fragment extends Fragment {
 
     public void listenerTrigger() {
         this.listener.backFromJoinUsFragment(editTextMail,editTextPassword);
-        setFragment(detailsFragment);
+        Intent i = new Intent(getActivity(), NavigationActivity.class);
+        startActivity(i);
     }
 
     private void setNextBtn(View view) {

@@ -16,7 +16,7 @@ public class TaskRequestsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_task_requests);
         // ADD HERE
         lvItems = findViewById(R.id.lvItems);
         items = new ArrayList<String>();

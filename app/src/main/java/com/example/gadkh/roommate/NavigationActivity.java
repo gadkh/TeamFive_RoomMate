@@ -1,11 +1,12 @@
 package com.example.gadkh.roommate;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainScreenActivity extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity {
     private Button guestScheduleBtn;
     private Button groceriesBtn;
     private Button tasksRequestBtn;
@@ -13,7 +14,7 @@ public class MainScreenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
+        setContentView(R.layout.activity_navigation);
         setAllButtons();
     }
 
@@ -38,7 +39,8 @@ public class MainScreenActivity extends AppCompatActivity {
         tasksRequestBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getBaseContext(), TaskRequestsActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -48,7 +50,8 @@ public class MainScreenActivity extends AppCompatActivity {
         guestScheduleBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getBaseContext(), GuestsSchedulerActivity.class);
+                startActivity(i);
             }
         });
     }
