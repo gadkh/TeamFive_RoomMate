@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import com.example.gadkh.roommate.R;
 
@@ -18,6 +19,7 @@ public class TasksAdapter extends ArrayAdapter<Task> {
         super(context, 0, tasks);
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
@@ -27,11 +29,14 @@ public class TasksAdapter extends ArrayAdapter<Task> {
             convertView = inflater.inflate(R.layout.task_item, parent, false);
         }
         // Lookup view for data population
-        TextView taskDetails = (TextView) convertView.findViewById(R.id.taskDetails);
 
         // Populate the data into the template view using the data object
-        taskDetails.setText(task.getTaskDetails());
+        CheckBox isDoneCheckbox = (CheckBox) convertView.findViewById(R.id.isDone);
+        isDoneCheckbox.setChecked(task.isDone());
+        isDoneCheckbox.setText(task.getTaskDetails());
 
+        TextView userDetails = convertView.findViewById(R.id.userDetails);
+        userDetails.setText("Assigned user: " + task.getAssignedUser().getFullName());
         // Return the completed view to render on screen
         return convertView;
     }

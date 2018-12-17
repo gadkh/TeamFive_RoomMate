@@ -49,7 +49,7 @@ public class TaskRequestsActivity extends AppCompatActivity {
         btnAddItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tasks.add(new Task(etNewItem.getText().toString(), false, new User()));
+                tasks.add(new Task(etNewItem.getText().toString(), false, new User("Omer", "1", "male", 40, 140)));
                 taskListFragment.showTable(tasks);
             }
         });
