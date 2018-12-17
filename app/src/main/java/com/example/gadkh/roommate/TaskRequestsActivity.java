@@ -36,7 +36,6 @@ public class TaskRequestsActivity extends AppCompatActivity {
         ft.replace(R.id.placeholder, taskListFragment);
         ft.commit();
         tasks = new ArrayList<>();
-        tasks.add(new Task("Test", false, new User()));
         taskListFragment.showTable(tasks);
     }
 
@@ -51,6 +50,7 @@ public class TaskRequestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 tasks.add(new Task(etNewItem.getText().toString(), false, new User()));
+                taskListFragment.showTable(tasks);
             }
         });
     }
