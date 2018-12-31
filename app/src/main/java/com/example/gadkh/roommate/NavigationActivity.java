@@ -72,7 +72,9 @@ public class NavigationActivity extends AppCompatActivity {
         groceriesBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(getBaseContext(), GroceriesActivity.class);
+                i.putExtra("message",user_id);
+                startActivity(i);
             }
         });
     }
