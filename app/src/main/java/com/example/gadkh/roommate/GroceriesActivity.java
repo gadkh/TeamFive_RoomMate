@@ -21,7 +21,7 @@ public class GroceriesActivity extends AppCompatActivity {
 
     private Button btnAddItem;
     private EditText etNewItem;
-    private TaskListFragment taskListFragment;
+    private GroceriesListFragment taskListFragment;
     private ArrayList<Task> tasks;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference myRef;
@@ -34,7 +34,7 @@ public class GroceriesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groceries);
         // ADD HERE
-        taskListFragment = new TaskListFragment();
+        taskListFragment = new GroceriesListFragment();
         setTaskListFragment();
         etNewItem = findViewById(R.id.etNewItem);
         Intent i = getIntent();
