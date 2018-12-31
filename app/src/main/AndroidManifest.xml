@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".MainScreenActivity">
         </activity>
+        <activity android:name=".GroceriesActivity">
+        </activity>
         <activity android:name=".TaskRequestsActivity">
         </activity>
         <activity android:name=".GuestsSchedulerActivity">
