@@ -1,9 +1,11 @@
 package com.example.gadkh.roommate.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.text.TextUtils;
@@ -16,6 +18,12 @@ import android.widget.Toast;
 
 import com.example.gadkh.roommate.NavigationActivity;
 import com.example.gadkh.roommate.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.concurrent.Executor;
 
 public class LogIn_Fragment extends Fragment {
 
@@ -25,6 +33,7 @@ public class LogIn_Fragment extends Fragment {
     private EditText editTextPassword;
     private SignUp_Fragment signUpFragment;
     private LogIn_Fragment logIn_fragment;
+    private FirebaseAuth firebaseAuth;
 
     public LogIn_Fragment() {
     }
@@ -43,6 +52,13 @@ public class LogIn_Fragment extends Fragment {
         signUpFragment = new SignUp_Fragment();
         logIn_fragment = new LogIn_Fragment();
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
+        if(firebaseAuth.getCurrentUser() != null){
+            //NewsFeeds activity here
+            Intent i = new Intent(getActivity(), NavigationActivity.class);
+            startActivity(i);
+        }
 
         // initialize Attributes
         initializeAttributes(view);
@@ -68,10 +84,7 @@ public class LogIn_Fragment extends Fragment {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (userLogin()) {
-                    Intent i = new Intent(getActivity(), NavigationActivity.class);
-                    startActivity(i);
-                }
+               userLogin();
             }
         });
     }
@@ -83,21 +96,35 @@ public class LogIn_Fragment extends Fragment {
     }
 
 
-    private boolean userLogin() {
+    private void userLogin() {
         String email = editTextMail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
         if (TextUtils.isEmpty(email)) {
             // email is empty
             Toast.makeText(getActivity(), "Please Enter Email", Toast.LENGTH_SHORT).show();
-            return false;
+            return;
         }
         if (TextUtils.isEmpty(password)) {
             // password is empty
             Toast.makeText(getActivity(), "Please Enter Password", Toast.LENGTH_SHORT).show();
-            return false;
+            return;
         }
-        return true;
+
+        firebaseAuth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        System.out.println("dfassaxfas");
+                        if(task.isSuccessful()){
+                            // start the newsFeeds activity
+                            startActivity(new Intent(getActivity(), NavigationActivity.class));
+                        }
+                        else{
+                            emailOrPassIncorrect();
+                        }
+                    }
+                });
     }
 
     public void emailOrPassIncorrect() {

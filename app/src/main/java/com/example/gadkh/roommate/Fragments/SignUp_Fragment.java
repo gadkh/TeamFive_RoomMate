@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.gadkh.roommate.Activities.MainActivity;
 import com.example.gadkh.roommate.Interfces.ICommunicationFragmentToActivity;
 import com.example.gadkh.roommate.NavigationActivity;
 import com.example.gadkh.roommate.R;
@@ -20,6 +22,7 @@ public class SignUp_Fragment extends Fragment {
     private EditText et_editTextMail, et_editTextMailConfirm, et_editTextPassword, et_editTextPasswordConfirm;
     private String editTextMail, editTextMailConfirm, editTextPassword, editTextPasswordConfirm;
     private Button nextBtn;
+    private SignUp_Details_Fragment signUp_details_fragment;
 
     public ICommunicationFragmentToActivity listener;
 
@@ -36,7 +39,7 @@ public class SignUp_Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view= inflater.inflate(R.layout.fragment_sign_up_, container, false);
-
+        signUp_details_fragment = new SignUp_Details_Fragment();
         initializeAttributes(view);
 
         setNextBtn(view);
@@ -64,8 +67,6 @@ public class SignUp_Fragment extends Fragment {
 
     public void listenerTrigger() {
         this.listener.backFromJoinUsFragment(editTextMail,editTextPassword);
-        Intent i = new Intent(getActivity(), NavigationActivity.class);
-        startActivity(i);
     }
 
     private void setNextBtn(View view) {
@@ -82,12 +83,6 @@ public class SignUp_Fragment extends Fragment {
             }
         });
     }
-    private void setFragment(Fragment fragment){
-        FragmentTransaction ft = getFragmentManager().beginTransaction().addToBackStack(null);// when push the back btn we go back to the previous fragment
-        ft.replace(R.id.placeholder,fragment);
-        ft.commit();
-    }
-
 
     public boolean validate(){
         boolean valid = true;

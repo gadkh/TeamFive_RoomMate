@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/brickswall"
+    tools:context=".Fragments.SignUp_Details_Fragment"
+    android:layoutDirection="ltr">
+
+
+    <ImageView
+        android:id="@+id/logoid"
+        android:layout_width="122dp"
+        android:layout_height="83dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.121"
+        app:srcCompat="@drawable/home"
+        tools:layout_editor_absoluteY="242dp" />
+
+
+    <EditText
+        android:id="@+id/fullNameSignUpDetailsId"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="316dp"
+        android:background="@drawable/edit_round"
+        android:drawablePadding="16dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/full_name"
+        android:textColor="@android:color/white"
+        android:textColorHint="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="0.04000002" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="236dp"
+        android:checkedButton="@id/FemaleId"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fullNameSignUpDetailsId"
+        tools:ignore="MissingConstraints">
+
+
+        <RadioButton
+            android:id="@+id/FemaleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="15dp"
+            android:paddingLeft="15dp"
+            android:text="@string/f"
+            android:textColor="@android:color/white"
+            tools:ignore="RtlSymmetry"
+            tools:layout_editor_absoluteX="88dp"
+            tools:layout_editor_absoluteY="378dp" />
+
+        <RadioButton
+            android:id="@+id/MaleId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30sp"
+            android:paddingStart="15dp"
+            android:paddingLeft="15dp"
+            android:text="@string/m"
+            android:textColor="@android:color/white"
+            tools:ignore="RtlSymmetry"
+            tools:layout_editor_absoluteX="211dp"
+            tools:layout_editor_absoluteY="433dp" />
+
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/regSignUpDetailsId"
+        android:layout_width="wrap_content"
+        android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="#00ffffff"
+        android:text="@string/register"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.892" />
+
+</android.support.constraint.ConstraintLayout>

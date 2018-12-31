@@ -26,6 +26,11 @@
     <string name="full_name">Full Name</string>
     <string name="weigh">Weigh</string>
     <string name="height">Height</string>
+    <string name="description">Description</string>
+    <string name="date">Date</string>
+    <string name="save_event">Save Event</string>
     <string name="register">Register</string>
+    <string name="m">M</string>
+    <string name="f">F</string>
 
 </resources>
